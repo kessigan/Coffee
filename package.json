@@ -1,0 +1,23 @@
+{
+  "name": "coffee_website",
+  "version": "1.0.0",
+  "description": "Fourth Year Lab Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
+  },
+  "dependencies" : {
+    "express" : "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kessigan/Coffee.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kessigan/Coffee/issues"
+  },
+  "homepage": "https://github.com/kessigan/Coffee#readme"
+}
