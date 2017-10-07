@@ -52,9 +52,9 @@
           <div class="col-sm-9" >
             <div class="row">
               <div class="col-sm-5" >
-    <select class="form-control">
-        <option>Machine 1</option>
-        <option>Machine 2</option>
+    <select id="graphOption" class="form-control">
+        <option value = "1">Machine 1</option>
+        <option value = "2">Machine 2</option>
 
     </select>
   </div>
@@ -76,6 +76,9 @@
           </div>
         </div>
       </div>
+
+
+
     </section>
 
     <!-- Footer -->
@@ -93,7 +96,23 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    $.get("https://b06c5176.ngrok.io/query?db=Coffee&q=SELECT%20%22Voltage%22%20FROM%20%22Coffee2%22%20WHERE%20time%20%3E%20now()%20-%2060m&epoch=ms", function(data, status){
+$("button").click(function(){
+
+  var database ;
+
+  var e = document.getElementById("graphOption");
+  var selection = e.options[e.selectedIndex].value;
+
+if (selection == 1){
+  var database = "https://b06c5176.ngrok.io/query?db=Coffee&q=SELECT%20%22Voltage%22%20FROM%20%22Coffee1%22%20WHERE%20time%20%3E%20now()%20-%2060m&epoch=ms";
+}
+
+else if (selection == 2){
+  var database = "https://b06c5176.ngrok.io/query?db=Coffee&q=SELECT%20%22Voltage%22%20FROM%20%22Coffee2%22%20WHERE%20time%20%3E%20now()%20-%2060m&epoch=ms";
+}
+
+
+    $.get(database, function(data, status){
         //console.log(data.results[0].series[0].columns);
         //console.log(data.results[0].series[0].values[0][1]);
 
@@ -129,6 +148,7 @@
 
         );
 
+    });
     });
 </script>
 
