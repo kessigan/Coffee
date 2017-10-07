@@ -30,6 +30,10 @@ app.get('/contact', function(request, response) {
   response.render('pages/contact');
 });
 
+app.get('/pic1', function(request, response) {
+  response.render('images/pic1.png');
+});
+
 
 
 app.listen(app.get('port'), function() {
