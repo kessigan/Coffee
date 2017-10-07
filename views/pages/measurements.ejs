@@ -91,25 +91,44 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.0.0/dygraph.min.js"></script>
 
-
-        <script type="text/javascript">
-          g = new Dygraph(
-
-            // containing div
-            document.getElementById("graphdiv"),
-
-            // CSV or path to a CSV file.
-            "Date,Temperature\n" +
-            "2008-05-07,75\n" +
-            "2008-05-08,70\n" +
-            "2008-05-09,80\n"
-
-          );
-        </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    $.get("https://b06c5176.ngrok.io/query?db=Coffee&q=SELECT%20%22Voltage%22%20FROM%20%22Coffee2%22%20WHERE%20time%20%3E%20now()%20-%201m&epoch=ms", function(data, status){
-        console.log(data);
+    $.get("https://b06c5176.ngrok.io/query?db=Coffee&q=SELECT%20%22Voltage%22%20FROM%20%22Coffee2%22%20WHERE%20time%20%3E%20now()%20-%2060m&epoch=ms", function(data, status){
+        //console.log(data.results[0].series[0].columns);
+        //console.log(data.results[0].series[0].values[0][1]);
+
+        for(count = 0; count < data.results[0].series[0].values.length; count++){
+
+          data.results[0].series[0].values[count][0] = new Date (data.results[0].series[0].values[count][0]);
+
+
+}
+
+        g = new Dygraph(
+
+          // containing div
+          document.getElementById("graphdiv"),
+
+          // CSV or path to a CSV file.
+          //data.results[0].series[0].columns,
+
+
+          data.results[0].series[0].values,
+          {
+  labels: [ "Time", "Voltage" ]
+},
+{
+  axis : {
+    x : {
+      valueFormatter: Dygraph.dateString_,
+      valueParser: function(x) { return 1000*parseInt(x); },
+      ticker: Dygraph.dateTicker
+    }
+  }
+}
+
+        );
+
     });
 </script>
 
