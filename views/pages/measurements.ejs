@@ -106,6 +106,13 @@
 
           );
         </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $.get("https://b06c5176.ngrok.io/query?db=Coffee&q=SELECT%20%22Voltage%22%20FROM%20%22Coffee2%22%20WHERE%20time%20%3E%20now()%20-%201m&epoch=ms", function(data, status){
+        console.log(data);
+    });
+</script>
+
 
 
   </body>
