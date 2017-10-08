@@ -1,86 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  </head>
-  <body>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Energy Measurement</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Energy Measurement</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/about">About
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/about">About
 <span class="sr-only">(current)</span>
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/measurements">Measurements</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/predictions">Predictions</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">Contact</a>
-            </li>
-          </ul>
-        </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/measurements">Measurements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/predictions">Predictions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
 
-    <!-- Page Content -->
-    <section class="py-5">
-      <div class="container">
-        <h1>Project Details</h1>
-        <p>The project entails the smart measurement of power usage and some prediction algorithms that use machine learnining. The system overview can be seen below</p>
-        <img src="https://github.com/kessigan/Coffee/raw/master/images/overview.png" alt="Mountain View" style="width:1800px;height:1000px;" >
-<h2>Client Side</h2>
-<p>The energy measurement board was developed by the EIE School at the University of the Witwatersrand. The current implementation of the board
- allows the the measurement of Line Voltage, Current, Frequency, Power factor and Power. The board also provides a timestamp and temperature
- measurements</p>
+  <!-- Page Content -->
+  <section class="py-5">
+    <div class="container">
+      <h1>Project Details</h1>
+      <p>The project entails the smart measurement of power usage and some prediction algorithms that use machine learnining. The system overview can be seen below</p>
+      <div><img src="https://github.com/kessigan/Coffee/raw/master/images/overview.png" style="width:1800px;height:1000px;"></div>
+      <h2>Client Side</h2>
+      <p>The client side consists of the Appliance that is under measurement. In this case it is a standard coffee machine. The measurement board is used to determine Voltage, Current and power of the measured device. Further measurements including power
+        factor, line frequency and temperature is also recieved from the measurement board. This information is then timestameped and sent to the Arduino. The Arduino combines these measurements into a single string which is then sent to the Raspberry
+        PI. The string is then sent as a MQTT message where it is recieved by the server side. Measurements are taken at a frequency of 1Hz</p>
 
-      </div>
 
       <h2>Server Side</h2>
-      <p>The energy measurement board was developed by the EIE School at the University of the Witwatersrand. The current implementation of the board
-       allows the the measurement of Line Voltage, Current, Frequency, Power factor and Power. The board also provides a timestamp and temperature
-       measurements</p>
+      <p>The server side recieves the measurements through node red. The measurements are then extracted from the MQTT string and written to the
+      database. The server also tries to predict when cups of coffee are made by comparing historical data with known values for cups of coffee.
+    A twitter message is then posted should it detect a cup of coffee made. </p>
 
-            </div>
 
-            <h2>Website</h2>
-            <p>The energy measurement board was developed by the EIE School at the University of the Witwatersrand. The current implementation of the board
-             allows the the measurement of Line Voltage, Current, Frequency, Power factor and Power. The board also provides a timestamp and temperature
-             measurements</p>
+      <h2>Website</h2>
+      <p>The website is currently hosted on Heroku. Data for the dashboard is recieved from the server by means of a GET request that returns the
+      power measurements for a specified time period. These measurements are then graphed and displayed to the user</p>
 
-                  </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-  </body>
+</body>
+
 </html>
