@@ -64,8 +64,8 @@
 </div>
 
 
-<div class="row mt-5">
-<div id="graphdiv"></div>
+<div  class="row mt-5">
+<div  id="graphdiv"></div>
 
 </div>
 
@@ -104,11 +104,11 @@ $("button").click(function(){
   var selection = e.options[e.selectedIndex].value;
 
 if (selection == 1){
-  var database = "https://b06c5176.ngrok.io/query?db=Coffee&q=SELECT%20%22Voltage%22%20FROM%20%22Coffee1%22%20WHERE%20time%20%3E%20now()%20-%2060m&epoch=ms";
+  var database = "https://b06c5176.ngrok.io/query?db=Coffee&q=SELECT%20%22Power%22%20FROM%20%22Coffee1%22%20WHERE%20time%20%3E%20now()%20-%201d&epoch=ms";
 }
 
 else if (selection == 2){
-  var database = "https://b06c5176.ngrok.io/query?db=Coffee&q=SELECT%20%22Voltage%22%20FROM%20%22Coffee2%22%20WHERE%20time%20%3E%20now()%20-%2060m&epoch=ms";
+  var database = "https://b06c5176.ngrok.io/query?db=Coffee&q=SELECT%20%22Power%22%20FROM%20%22Coffee2%22%20WHERE%20time%20%3E%20now()%20-%201d&epoch=ms";
 }
 
 
@@ -134,16 +134,18 @@ else if (selection == 2){
 
           data.results[0].series[0].values,
           {
-  labels: [ "Time", "Voltage" ]
+  labels: [ "Time", "Power" ]
 },
 {
   axis : {
     x : {
       valueFormatter: Dygraph.dateString_,
       valueParser: function(x) { return 1000*parseInt(x); },
-      ticker: Dygraph.dateTicker
+      ticker: Dygraph.dateTicker,
     }
   }
+
+
 }
 
         );
@@ -152,6 +154,12 @@ else if (selection == 2){
     });
 </script>
 
+<style type="text/css">
+  #graphdiv {
+    width: 800px;
+    height: 300px;
+  }
+</style>
 
 
   </body>
