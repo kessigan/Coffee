@@ -48,6 +48,7 @@
     <section class="py-5">
       <div class="container">
         <h1>View Energy Measurements</h1>
+        <p>The measurements shown below are for the last 24 hours.</p>
         <div class="row">
           <div class="col-sm-9" >
             <div class="row">
@@ -104,11 +105,11 @@ $("button").click(function(){
   var selection = e.options[e.selectedIndex].value;
 
 if (selection == 1){
-   database = "https://db063b7e.ngrok.io/query?db=Coffee&q=SELECT%20%22Power%22%20FROM%20%22Coffee1%22%20WHERE%20time%20%3E%20now()%20-%201d&epoch=ms";
+   database = "https://d2193f0b.ngrok.io/query?db=Coffee&q=SELECT%20%22Power%22%20FROM%20%22Coffee1%22%20WHERE%20time%20%3E%20now()%20-%201d&epoch=ms";
 }
 
 else if (selection == 2){
-   database = "https://db063b7e.ngrok.io/query?db=Coffee&q=SELECT%20%22Power%22%20FROM%20%22Coffee2%22%20WHERE%20time%20%3E%20now()%20-%201d&epoch=ms";
+   database = "https://d2193f0b.ngrok.io/query?db=Coffee&q=SELECT%20%22Power%22%20FROM%20%22Coffee2%22%20WHERE%20time%20%3E%20now()%20-%201d&epoch=ms";
 }
 
 

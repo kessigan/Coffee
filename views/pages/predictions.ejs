@@ -46,8 +46,8 @@
     <!-- Page Content -->
     <section class="py-5">
       <div class="container">
-        <h1>Welcome to the Wits Energy Measurement Project</h1>
-        <p>The background images for the slider are set directly in the HTML using inline CSS. The rest of the styles for this template are contained within the
+        <h1>View Predictions</h1>
+        <p>The first graph below shows the usage of Coffee Machine 1 for the last 24 hours whilst the second graph shows the predicted usage for the same period.</p>
 
       </div>
       <div  class="row mt-5">
@@ -85,7 +85,7 @@
 var g1,g2;
 
 
-           var database1 = "https://db063b7e.ngrok.io/query?db=Coffee&q=SELECT%20%22Power%22%20FROM%20%22Coffee1%22%20WHERE%20time%20%3E%20now()%20-%201d&epoch=ms";
+           var database1 = "https://d2193f0b.ngrok.io/query?db=Coffee&q=SELECT%20%22Power%22%20FROM%20%22Coffee1%22%20WHERE%20time%20%3E%20now()%20-%201d&epoch=ms";
 
 
 
@@ -137,7 +137,7 @@ var g1,g2;
 
 
 
-           var database2 = "https://db063b7e.ngrok.io/query?db=Predictions&q=SELECT%20%22Power%22%20FROM%20%22Coffee1%22%20WHERE%20time%20%3E%20now()%20-%2024h&epoch=ms";
+           var database2 = "https://d2193f0b.ngrok.io/query?db=Predictions&q=SELECT%20%22Power%22%20FROM%20%22Coffee1%22%20WHERE%20time%20%3E%20now()%20-%2024h&epoch=ms";
 
 
 
