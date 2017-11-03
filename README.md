@@ -1,1 +1,1 @@
-Website available at [witscofee.tk](http://witscofee.tk).
+Website available at [witscoffee.tk](http://witscoffee.tk).
